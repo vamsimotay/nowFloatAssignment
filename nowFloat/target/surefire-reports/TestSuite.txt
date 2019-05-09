@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 128.704 s <<< FAILURE! - in TestSuite
+feature(com.nowFloat.TestRunner.TestRunner)  Time elapsed: 53.959 s  <<< FAILURE!
+cucumber.runtime.CucumberException: java.lang.ClassCastException: com.sun.proxy.$Proxy19 cannot be cast to org.openqa.selenium.By
+	at com.nowFloat.TestRunner.TestRunner.feature(TestRunner.java:61)
+Caused by: java.lang.ClassCastException: com.sun.proxy.$Proxy19 cannot be cast to org.openqa.selenium.By
+
+feature(com.nowFloat.TestRunner.TestRunner)  Time elapsed: 64.684 s  <<< FAILURE!
+cucumber.runtime.CucumberException: java.lang.ClassCastException: com.sun.proxy.$Proxy19 cannot be cast to org.openqa.selenium.By
+	at com.nowFloat.TestRunner.TestRunner.feature(TestRunner.java:61)
+Caused by: java.lang.ClassCastException: com.sun.proxy.$Proxy19 cannot be cast to org.openqa.selenium.By
+

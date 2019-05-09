@@ -1,0 +1,55 @@
+package com.nowFloat.Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import com.nowFloat.Utils.Config;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class HomePage {
+private WebDriver driver =Config.driver;
+	
+	public HomePage(){
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(how=How.XPATH,using="//li[@id='product']//a[contains(text(),'Services')]")
+	public WebElement servicesLink;
+	@FindBy(how=How.ID,using="productCardSelect")
+	public WebElement categoryDropDown;
+	
+	@FindBy(how=How.XPATH,using="//div[@class='prouct-box']")
+	public WebElement productBox;
+	
+	public void nowFloatservices() {
+		servicesLink.click();
+	}
+	
+	public void servicesList() {
+		if(categoryDropDown.isDisplayed()) {
+			System.out.println("Services Links are displaying");
+		}else {
+			System.out.println("Services Links are not displaying");
+		}
+	}
+	
+	public void selectService(String arg) {
+	    Select services = new Select(categoryDropDown);
+	    services.selectByValue(arg);
+	}
+	
+	public void verifyServiceSelected() {
+		if(productBox.isDisplayed()) {
+			System.out.println("productBox Links are displaying");
+		}else {
+			System.out.println("productBox Links are not displaying");
+		}
+	}
+}

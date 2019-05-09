@@ -1,0 +1,58 @@
+package com.nowFloat.Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+import com.nowFloat.Utils.Config;
+
+public class AddToCartPage {
+	
+private WebDriver driver =Config.driver;
+	
+	public AddToCartPage(){
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(how=How.XPATH,using="//span[@class='cta-btn-primary product-btn']")
+	public WebElement addToCartBtn;
+	@FindBy(how=How.ID,using="//a[contains(@class,'btn dropdown-toggle show-count')]")
+	public WebElement shoppingBag;
+	@FindBy(how=How.ID,using="//a[contains(text(),'checkout')]")
+	public WebElement checkOutBtn;
+	
+	@FindBy(how=How.NAME,using="name")
+	public WebElement custName;
+	
+	@FindBy(how=How.NAME,using="email")
+	public WebElement custEmail;
+	
+	@FindBy(how=How.NAME,using="phone")
+	public WebElement custPhone;
+	
+	@FindBy(how=How.NAME,using="zipcode")
+	public WebElement custZipCode;
+	
+	@FindBy(how=How.NAME,using="address")
+	public WebElement custAddress;
+	
+	
+	@FindBy(how=How.NAME,using="city")
+	public WebElement custCity;
+	
+	
+	@FindBy(how=How.NAME,using="state")
+	public WebElement custState;
+	
+	
+	@FindBy(how=How.NAME,using="country")
+	public WebElement custCountry;
+	
+	
+	
+	
+	
+
+}

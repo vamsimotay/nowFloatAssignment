@@ -1,0 +1,74 @@
+package com.nowFloat.Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import com.nowFloat.Utils.Config;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class HomePage {
+private WebDriver driver =Config.driver;
+	
+	public HomePage(){
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(how=How.XPATH,using="//li[@id=\"product\"]//a[contains(text(),'Services')]")
+	public WebElement servicesLink;
+	@FindBy(how=How.ID,using="productCardSelect")
+	public WebElement categoryDropDown;
+	
+	@FindBy(how=How.XPATH,using="//div[@class='prouct-box']")
+	public WebElement productBox;
+	
+	@Given("^I am on Now Float Home Page$")
+	public void i_am_on_Now_Float_Home_Page() throws Throwable {
+		Config.getBrowser("chrome");
+	  
+	}
+
+	@When("^I click Services link from home page$")
+	public void i_click_Services_link_from_home_page() throws Throwable {
+		servicesLink.click();
+	}
+
+	
+
+	@Then("^I verify list of services are displayed$")
+	public void i_verify_list_of_services_are_displayed() throws Throwable {
+		if(categoryDropDown.isDisplayed()) {
+			System.out.println("Services Links are displaying");
+		}else {
+			System.out.println("Services Links are not displaying");
+		}
+	}
+	
+	
+	@When("^I click any \"([^\"]*)\" from dropdown list$")
+	public void i_click_any_from_dropdown_list(String arg1) throws Throwable {
+	    Select services = new Select(categoryDropDown);
+	    services.selectByValue(arg1);
+	}
+
+
+	@Then("^I verify selected service is displayed$")
+	public void i_verify_selected_service_is_displayed() throws Throwable {
+		if(productBox.isDisplayed()) {
+			System.out.println("productBox Links are displaying");
+		}else {
+			System.out.println("productBox Links are not displaying");
+		}
+	}
+	
+	
+
+
+
+}

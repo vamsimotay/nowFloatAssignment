@@ -1,0 +1,13 @@
+@Testing
+Feature: Now Float Service Selection Functionality
+
+ Scenario Outline: Verify User is able to Select Service From Home Page successfully
+    Given user is on home page
+    When I click Services link from home page
+    Then I verify list of services are displayed
+    And I select <Services> from category list
+    Then I verify selected service is displayed
+       
+    Examples:
+    |Services|
+    |Classic|
